@@ -1,0 +1,48 @@
+[gd_resource type="ShaderMaterial" load_steps=8 format=2]
+
+[ext_resource path="res://Shaders/Water/water_3d.shader" type="Shader" id=1]
+
+[sub_resource type="OpenSimplexNoise" id=7]
+seed = 197
+period = 93.6
+lacunarity = 0.75
+
+[sub_resource type="NoiseTexture" id=8]
+seamless = true
+noise = SubResource( 7 )
+
+[sub_resource type="OpenSimplexNoise" id=9]
+seed = 197
+period = 30.4
+lacunarity = 0.89
+
+[sub_resource type="NoiseTexture" id=10]
+seamless = true
+noise = SubResource( 9 )
+
+[sub_resource type="OpenSimplexNoise" id=11]
+seed = 115
+period = 42.7
+lacunarity = 1.05
+
+[sub_resource type="NoiseTexture" id=12]
+seamless = true
+as_normalmap = true
+bump_strength = 3.0
+noise = SubResource( 11 )
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/deep_color = Color( 0.101961, 0.027451, 0.152941, 0.866667 )
+shader_param/shallow_color = Color( 0.270588, 0.47451, 0.764706, 0.109804 )
+shader_param/refraction_speed = 0.094
+shader_param/refraction_strength = 0.159
+shader_param/foam_amount = 0.146
+shader_param/foam_cutoff = 0.821
+shader_param/foam_color = Color( 0.654902, 0.835294, 0.956863, 1 )
+shader_param/displacement_strength = 0.1
+shader_param/depth_distance = 1.0
+shader_param/movement_direction = Vector2( 1, 0 )
+shader_param/refraction_noise = SubResource( 12 )
+shader_param/foam_noise = SubResource( 10 )
+shader_param/displacement_noise = SubResource( 8 )

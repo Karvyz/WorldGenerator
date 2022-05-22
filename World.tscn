@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/simple_fpsplayer/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/ChunkLoader.gd" type="Script" id=2]
+[ext_resource path="res://Materials/Terrain/Terrain.tres" type="Material" id=3]
+
+[node name="World" type="Spatial"]
+
+[node name="CSGBox2" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 90, 0 )
+use_collision = true
+width = 1.0
+height = 1.0
+depth = 1.0
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0 )
+
+[node name="ChunkLoader" type="Spatial" parent="Player"]
+script = ExtResource( 2 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.391309, 0.920259, 0, -0.920259, 0.391309, 0, 7.33896, 0 )
+light_color = Color( 0.968627, 0.972549, 0.521569, 1 )
+shadow_enabled = true
+
+[node name="CSGSphere" type="CSGSphere" parent="."]
+radial_segments = 100
+rings = 100
+material = ExtResource( 3 )

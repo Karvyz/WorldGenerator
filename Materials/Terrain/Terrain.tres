@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://Shaders/Terrain.shader" type="Shader" id=1]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/grass_color = Color( 0.321569, 0.890196, 0.341176, 1 )
+shader_param/dirt_color = Color( 0.25, 0.25, 0.25, 1 )
+shader_param/transition1 = 0.9
+shader_param/transition2 = 0.7
